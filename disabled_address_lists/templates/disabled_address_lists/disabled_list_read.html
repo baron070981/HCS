@@ -1,0 +1,108 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang=ru>
+    <head>
+        <meta charset="utf-8">
+        <title>read list</title>
+        <link rel='stylesheet' href='{% static "disabled_address_lists/css/styles.css" %}'>
+    </head>
+    <body> 
+        <header>
+            <table class="top">
+                <tr>
+                    <td class="top-col-nav-links">
+                        <a href="{% url 'appselbar' %}">На главную</a>
+                    </td>
+                    <td class="top-col-headname">Список отключенных адресов</td>
+                    <td class="top-col-create"><a href="{% url 'createaddress' %}">{{menu.ADD}}</a></td>
+                </tr>
+            </table>
+        </header>
+        <table class="table-content">
+            <thead>
+                <th>Дата</th>
+                <th>Адрес</th>
+                <th>Счетчик</th>
+                <th>Причина</th>
+                <th>Способ</th>
+                <th class='op-col'></th>
+            </thead>
+            {% for obj in object_list %}
+                <tr>
+                    <td>{{obj.blackout_datetime}}</td>
+                    <td>
+                        {{obj.city}}<br>ул.&nbsp;{{obj.street}}&nbsp;
+                        д.&nbsp;{{obj.house}}<br>{{obj.rest_address}}
+                    </td>
+                    <td>
+                        {{obj.meter_brand}}<br>No:&nbsp;{{obj.number_meter}}<br>
+                        пок.:&nbsp;{{obj.reading}}<br>No пл.:&nbsp;{{obj.number_seal}}
+                    </td>
+                    <td>{{obj.reason}}</td>
+                    <td>{{obj.shutdown_method}}</td>
+                    <td class='op-col'>
+                        <p><a href="{% url 'updaddress' obj.pk %}">ред.</a></p>
+                        <form method="post">
+                        {% csrf_token %}
+                        <p><a href="{% url 'deladdress' obj.pk %}">удал.</a></p>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        
+<!--    =========   Пагинация страницы ============    -->
+        {% if page_obj.has_other_pages %}
+        <nav class="nav-pages">
+            
+                {% if page_obj.has_previous %}
+                    <span class="num-page">
+                        <a href="?page={{page_obj.previous_page_number}}">&lt;</a>
+                    </span>
+                {% endif %}
+                
+                {% for p in paginator.page_range %}
+                    {% if page_obj.number == p %}
+                        <span class="num-page-sel">
+                        <a href="?page={{p}}">{{p}}</a>
+                        </span>
+                    {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %}
+                        <span class="num-page">
+                        <a href="?page={{p}}">{{p}}</a>
+                        </span>
+                    {% endif %}
+                {% endfor %}
+                
+                {% if page_obj.has_next %}
+                    <span class="num-page">
+                        <a href="?page={{page_obj.next_page_number}}">&gt;</a>
+                    </span>
+                {% endif %}
+        </nav>
+        {% endif %}
+        
+    </body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

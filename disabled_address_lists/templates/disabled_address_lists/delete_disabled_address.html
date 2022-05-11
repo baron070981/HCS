@@ -1,0 +1,47 @@
+{% load static %}
+
+<!-- Страница формы добавления нового адреса по которому провелось отключение -->
+
+<!DOCTYPE HTML>
+<html>
+    <head> 
+    <title>create disabled address</title> 
+    <meta charset="UTF-8"> 
+    <link rel="icon" href="favicon.ico"> 
+    <link rel="stylesheet" href="{% static 'disabled_address_lists/css/formsstyles.css' %}"> 
+</head> 
+    <body>
+        <main>
+            <form action="" method="post" class="del-form">
+                {% csrf_token %}
+                <div class="del-label">
+                    Вы действительно хотите удалить?
+                </div>
+                <div>
+                    <button type='submit' class="del-button"> Удалить </button>
+                </div>
+            </form>
+        </main>
+    </body> 
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

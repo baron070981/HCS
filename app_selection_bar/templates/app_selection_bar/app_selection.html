@@ -1,0 +1,27 @@
+{% load static %}
+
+<!-- Страница формы добавления нового адреса по которому провелось отключение -->
+
+<!DOCTYPE HTML>
+<html>
+    <head> 
+    <title>all apps</title> 
+    <meta charset="UTF-8"> 
+    <link rel="icon" href="favicon.ico"> 
+    <link rel="stylesheet" href="{% static 'app_selection_bar/css/style.css' %}"> 
+</head> 
+    <body>
+        <header>
+            <div>Список приложений</div>
+        </header>
+        <main>
+        <div class="content">
+        {% for m in menu %}
+            <div class="content-link">
+                <a href="{% url m.urls %}">{{m.name}}</a>
+            </div>
+        {% endfor %}
+        </div>
+        </main>
+    </body> 
+</html>

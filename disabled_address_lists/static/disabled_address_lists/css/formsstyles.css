@@ -1,0 +1,117 @@
+body{
+    background: #06085D;
+}
+
+table{
+    background: #06085D;
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+
+.label-col{
+    color: #E6EFFF;
+    text-align: right;
+    padding:1%;
+}
+
+
+.create-button{
+    text-align: center;
+    width: 33%;
+    color: #D6EE19;
+    margin-top: 1%;
+    background: #0D700E;
+    font-weight: bold;
+    font-stretch: ultra-expanded;
+    font-size: x-large;
+}
+
+
+.btn-col{
+    text-align:center;
+    padding: 1%;
+}
+
+main{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    overflow: auto;
+}
+
+.del-form{
+    margin: auto;
+    text-align: center;
+    width: 100%
+}
+
+
+.del-button{
+    text-align: center;
+    width: 33%;
+    color: #D6EE19;
+    margin-top: 1%;
+    background: #0D700E;
+    font-weight: bold;
+    font-stretch: ultra-expanded;
+    font-size: x-large;
+}
+
+.del-label{
+    font-size: xx-large;
+    color: red;
+}
+
+.top{
+    background: #090A2E;
+    table-layout: fixed;
+    width: 100%;
+    border-bottom: 2px solid green;
+    margin-bottom: 1%;
+}
+
+.top-col-headername{
+    color: #3AD5FC;
+    width: 100%;
+    text-align: center;
+    font-size: x-large;
+}
+
+.top-col-nav-links{
+    padding-left: 5px;
+    width: 10%;
+    
+}
+
+.top-col-nav-links a{
+    color: #84F00A;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

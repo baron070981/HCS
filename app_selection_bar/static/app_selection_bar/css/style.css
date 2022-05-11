@@ -1,0 +1,55 @@
+
+
+body{
+    background: #06085D;
+}
+
+header{
+    background: #090A2E;
+    table-layout: fixed;
+    width: 100%;
+    border-bottom: 2px solid green;
+    margin-bottom: 1%;
+    text-align: center;
+    color: #3AD5FC;
+    font-size: x-large;
+}
+
+a{
+    color: #84F00A;
+    text-decoration: none;
+    font-size: large;
+}
+
+main{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    overflow: auto;
+}
+
+.content{
+    margin: 5% auto auto auto;
+    text-align: center;
+    width: 100%
+}
+
+.content-link{
+    margin-top: 1%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

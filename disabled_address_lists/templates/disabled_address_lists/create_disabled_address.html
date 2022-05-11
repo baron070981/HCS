@@ -1,0 +1,44 @@
+{% load static %}
+
+<!-- Страница формы добавления нового адреса по которому провелось отключение -->
+
+<!DOCTYPE HTML>
+<html>
+    <head> 
+    <title>create disabled address</title> 
+    <meta charset="UTF-8"> 
+    <link rel="icon" href="favicon.ico"> 
+    <link rel="stylesheet" href="{% static 'disabled_address_lists/css/formsstyles.css' %}"> 
+</head> 
+    <body>
+        <header>
+            <table class="top">
+                <tr>
+                    <td class="top-col-nav-links">
+                        <a href="{% url 'appselbar' %}">На главную</a>
+                        <br>
+                        <a href="{% url 'disaddresslist' %}">Назад</a>
+                    </td>
+                    <td class="top-col-headername">добавление нового адреса</td>
+                </tr>
+            </table>
+        </header>
+        <form method="post">
+        {% csrf_token %}
+        <table>
+            {% for f in form %}
+            <tr>
+                <td class='label-col'><label for="{{f.id_for_label}}">{{f.label}}</label></td>
+                <td class='form-col'>{{f}}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+            <td colspan="2" class='btn-col'>
+                <button type='submit' class="create-button"> Сохранить... </button>
+            </td>
+            </tr>
+            
+        </table>
+        </form>
+    </body> 
+</html>
