@@ -24,16 +24,22 @@ body{
 
 .table-content td{
     color: #E6E6FA;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
 }
 
 .op-col{
     width: 5%;
-    font-size: smaller;
+    font-size: medium;
 }
 
 .op-col a{
     color: #84F00A;
     text-decoration: none;
+}
+
+.deladdress{
+    margin-top: 0.5%;
 }
 
 .top{

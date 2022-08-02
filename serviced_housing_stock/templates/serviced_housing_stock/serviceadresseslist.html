@@ -42,9 +42,10 @@
                     <td>д.{{obj.house}}</td>
                     <td>{{obj.note}}</td>
                     <td class='op-col'>
+                        <a href="{% url upd.urls obj.pk %}">{{upd.text}}</a>
                         <form method="post">
                         {% csrf_token %}
-                            <p><a href="{% url delete.urls obj.pk %}">{{delete.text}}</a></p>
+                            <a href="{% url delete.urls obj.pk %}" class="deladdress">{{delete.text}}</a>
                         </form>
                     </td>
                 </tr>

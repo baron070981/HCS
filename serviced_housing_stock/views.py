@@ -13,10 +13,12 @@ from .models import *
 from .forms import *
 
 
+# обслуживаемый жилфонд
+
 
 class ServiceAddressListView(ListView):
     '''Представление списка адресов'''
-    paginate_by = 15 # количество адресов отображаемых на странице. пагинация
+    paginate_by = 20 # количество адресов отображаемых на странице. пагинация
     model = ServiceAddressModel
     template_name = 'serviced_housing_stock/serviceadresseslist.html'
     context_object_name = 'serviceaddresslist'
@@ -25,6 +27,7 @@ class ServiceAddressListView(ListView):
         context = super().get_context_data(**kwargs)
         context['menu'] = [{'name':'добавить адрес', 'urls':'createservaddress'}]
         context['delete'] = {'text':'удал.', 'urls':'delservaddress'}
+        context['upd'] = {'text':'ред.', 'urls':'updservaddress'}
         context['home'] = {'text':'на главную', 'urls':'appselbar'}
         return context
     
@@ -35,7 +38,7 @@ class ServiceAddressListView(ListView):
 
 
 class CreateServiceAddress(CreateView):
-    ''''''
+    '''Добавление адреса'''
     form_class = CreateServiceAddressForm
     template_name = 'serviced_housing_stock/create_service_address.html'
     context_object_name = 'form'
@@ -50,12 +53,24 @@ class CreateServiceAddress(CreateView):
 
 
 class DeleteServiceAddress(DeleteView):
-    ''''''
+    '''Удаление адреса'''
     model = ServiceAddressModel
     template_name = 'disabled_address_lists/delete_disabled_address.html'
     success_url = reverse_lazy('servaddresslist')
 
 
+
+class UpdateServiceAddress(UpdateView):
+    ''''''
+    model = ServiceAddressModel
+    form_class = CreateServiceAddressForm
+    template_name = 'serviced_housing_stock/create_service_address.html'
+    context_object_name = 'form'
+    success_url = reverse_lazy('servaddresslist')
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
 
 
 

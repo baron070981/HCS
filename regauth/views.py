@@ -11,30 +11,27 @@ from django.contrib.auth.views import LoginView
 from django.views.generic import TemplateView
 
 
-# app_selection_bar
+# regauth
 
-
-def index(request):
-    data = {'menu':[('a','first'), ('b','second')]}
-    return render(request, 'app_selection_bar/app_selection.html', context=data)
-
-
-
-
-class AppListView(TemplateView):
+class LoginUser(LoginView):
     ''''''
-    template_name = 'app_selection_bar/app_selection.html'
-    context_object_name = 'applist'
+    form_class = AuthenticationForm
+    template_name = 'regauth/loginout.html'
+    
     
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['menu'] = [{'name':'Списки отключенных адресов','urls': 'disaddresslist'}, 
-                           {'name':'Списки жил.фонда на обслуживании','urls': 'servaddresslist'}]
         return context
-
-
-
-
+        
+    
+    def get_success_url(self):
+        return reverse_lazy('appselbar')
+    
+    
+    
+def logout_user(request):
+    logout(request)
+    return redirect('appselbar')
 
 
 

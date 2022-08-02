@@ -18,12 +18,18 @@ from django.urls import path
 from django.urls import include
 from django.conf import settings
 from django.conf.urls.static import static
+
 # urls всего проекта
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('dis', include('disabled_address_lists.urls')),
+    # списки отключенных адресов
+    path('dis/', include('disabled_address_lists.urls')),
+    # вход/выход
+    path('loginout/', include('regauth.urls')),
+    # главное меню. выбор приложения
     path('', include('app_selection_bar.urls')),
-    path('serv', include('serviced_housing_stock.urls')),
+    # списки ослуживаемого жил.фонда
+    path('serv/', include('serviced_housing_stock.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

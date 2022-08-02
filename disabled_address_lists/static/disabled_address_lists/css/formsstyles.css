@@ -94,7 +94,9 @@ main{
     text-decoration: none;
 }
 
-
+.errors{
+    color: red;
+}
 
 
 

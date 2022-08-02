@@ -1,6 +1,6 @@
 {% load static %}
 
-<!-- Страница формы добавления нового адреса по которому провелось отключение -->
+<!-- Страница выбора приложения или перехода на страницу авторизации -->
 
 <!DOCTYPE HTML>
 <html>
@@ -12,15 +12,36 @@
 </head> 
     <body>
         <header>
-            <div>Список приложений</div>
+            <table class="top">
+                <tr>
+                    <td class="top-col-headername">Список приложений</td>
+                    
+                    <td class="top-col-login">
+                        {% if not request.user.is_authenticated %}
+                        <div>
+                        <a href="{% url 'login' %}">войти...</a>
+                        </div>
+                        {% else %}
+                        <div>
+                        <a href="{% url 'logout' %}">выйти...</a>
+                        </div>
+                        {% endif %}
+                    </td>
+                    
+                </tr>
+            </table>
         </header>
         <main>
         <div class="content">
+        {% if request.user.is_authenticated %}
         {% for m in menu %}
             <div class="content-link">
                 <a href="{% url m.urls %}">{{m.name}}</a>
             </div>
         {% endfor %}
+        {% else %}
+            <div class="note-not-login">Необходимо войти</div>
+        {% endif %}
         </div>
         </main>
     </body> 

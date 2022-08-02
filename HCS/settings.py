@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'disabled_address_lists.apps.DisabledAddressListsConfig',
     'app_selection_bar.apps.AppSelectionBarConfig',
     'serviced_housing_stock.apps.ServicedHousingStockConfig',
+    'regauth.apps.RegauthConfig'
 ]
 
 MIDDLEWARE = [

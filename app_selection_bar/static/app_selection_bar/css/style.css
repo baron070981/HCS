@@ -6,7 +6,6 @@ body{
 
 header{
     background: #090A2E;
-    table-layout: fixed;
     width: 100%;
     border-bottom: 2px solid green;
     margin-bottom: 1%;
@@ -21,18 +20,9 @@ a{
     font-size: large;
 }
 
-main{
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    overflow: auto;
-}
 
 .content{
-    margin: 5% auto auto auto;
+    margin-top: 1%;
     text-align: center;
     width: 100%
 }
@@ -40,6 +30,38 @@ main{
 .content-link{
     margin-top: 1%;
 }
+
+.top{
+    table-layout: fixed;
+    width: 100%;
+}
+
+.top-col-login{
+    width: 10%;
+}
+
+
+.top-col-headername{
+    text-align: left;
+    padding-left: 42%;
+}
+
+.note-not-login{
+    font-size: xx-large;
+    color: red;
+    margin-top: 20%;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
